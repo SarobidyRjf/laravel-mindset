@@ -17,9 +17,13 @@ use App\Http\Controllers\OrderController;
 //     Route::get('/products/{id}', 'show')->whereNumber('id')->name('products.show');
 // });
 
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
-Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
-Route::post('/users', [UserController::class, 'store'])->name('users.store');
-Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
-Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
-Route::delete('/users/{id}', [UserController::class, 'delete'])->name('users.delete');
+// Route::get('/', [UserController::class, 'index'])->name('users.index');
+// Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
+// Route::post('/users', [UserController::class, 'store'])->name('users.store');
+// Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+// Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+// Route::delete('/users/{id}', [UserController::class, 'delete'])->name('users.delete');
+
+// Laravel Mindest project
+Route::view('/', 'welcome'); 
+Route::view('/project', 'project'); 
