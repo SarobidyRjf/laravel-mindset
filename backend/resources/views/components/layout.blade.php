@@ -93,7 +93,8 @@
         <div class="flex h-14 items-center justify-center max-w-screen-xl mx-auto px-4 md:px-8">
             <ul class="flex items-center gap-6">
                 <x-link-item href="/" :active="Route::currentRouteName() === 'homepage'">HomePage</x-link-item>
-                <x-link-item href="/project" :active="Route::currentRouteName() === 'projects'">Projects</x-link-item>
+                <x-link-item href="/projects" :active="Route::currentRouteName() === 'projects'">Projects</x-link-item>
+                <x-link-item href="/recipes" :active="Route::currentRouteName() === 'projects'">Recipes</x-link-item>
             </ul>
         </div>
     </nav>

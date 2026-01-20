@@ -26,7 +26,7 @@ use App\Http\Controllers\OrderController;
 
 // Laravel Mindest project
 Route::view('/', 'homepage')->name('homepage'); 
-Route::view('/project', 'project')->name('projects'); 
+Route::view('/projects', 'project')->name('projects'); 
 Route::get('/recipes', function (){
     $recipes = [
         1 => 'Spagetti carbonara', 'ingredients' => ['Pasta', 'Eggs', 'Cheese', 'Bacon'],
@@ -34,6 +34,10 @@ Route::get('/recipes', function (){
         3 => 'Vegetable  Stir Fry', 'ingredients' => ['Broccoli', 'Carrot', 'Soy Sauce', 'Garlic'],
     ];
 
-    return view('recipes.index');
+    $firstname = "Rajao";
+
+    return view('recipes.index', [
+        'name' => $firstname
+    ]);
     
 })->name('recipes.index');
