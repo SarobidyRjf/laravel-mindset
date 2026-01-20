@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MonController;
 use App\Http\Controllers\OrderController;
@@ -29,15 +30,35 @@ Route::view('/', 'homepage')->name('homepage');
 Route::view('/projects', 'project')->name('projects'); 
 Route::get('/recipes', function (){
     $recipes = [
-        1 => 'Spagetti carbonara', 'ingredients' => ['Pasta', 'Eggs', 'Cheese', 'Bacon'],
-        2 => 'Chicken Curry', 'ingredients' => ['Chicken', 'Coconut Milk', 'Curry Powder'],
-        3 => 'Vegetable  Stir Fry', 'ingredients' => ['Broccoli', 'Carrot', 'Soy Sauce', 'Garlic'],
+        1 => ['title' => 'Spagetti carbonara', 'ingredients' => ['Pasta', 'Eggs', 'Cheese', 'Bacon']],
+        2 => ['title' => 'Chicken Curry', 'ingredients' => ['Chicken', 'Coconut Milk', 'Curry Powder']],
+        3 => ['title' => 'Vegetable  Stir Fry', 'ingredients' => ['Broccoli', 'Carrot', 'Soy Sauce', 'Garlic']]
     ];
 
-    $firstname = "Rajao";
+    // $firstname = "Rajao";
+    // $lastname = "Fetra";
 
-    return view('recipes.index', [
-        'name' => $firstname
-    ]);
+    return view('recipes.index', compact('recipes'));
     
 })->name('recipes.index');
+
+
+Route::get('/recipes/{id}', function (int $id) {
+
+         $recipes = [  
+        1 => ['title' => 'Spagetti carbonara', 'ingredients' => ['Pasta', 'Eggs', 'Cheese', 'Bacon']],
+        2 => ['title' => 'Chicken Curry', 'ingredients' => ['Chicken', 'Coconut Milk', 'Curry Powder']],
+        3 => ['title' => 'Vegetable  Stir Fry', 'ingredients' => ['Broccoli', 'Carrot', 'Soy Sauce', 'Garlic']]
+    ];
+
+    
+    // @dd(Arr::get($recipes, $id, ['title' => 'Recipes not found', 'Ingredients' => [] ]));
+
+    // Dot(.) Notation
+    // @dd(Arr::get($recipes,'1.ingredients', ['title' => 'Recipes not found', 'Ingredients' => [] ]));
+
+    $recipe = Arr::get($recipes, $id, ['title' => 'Recipes not found', 'Ingredients' => [] ]);
+
+    return view('recipes.show', compact('recipe'));
+    
+})->name('recipes.show');

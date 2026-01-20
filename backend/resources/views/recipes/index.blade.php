@@ -1,5 +1,9 @@
 <x-layout>
 
     <h1>My Recipes</h1>
-     <h2>Recette de {{ $name }}</h2>
+    
+     @foreach ($recipes as $key => $recipe)
+        
+        <p><a href="/recipes/{{ $key }} " class="underline text-blue-500">{{ $recipe['title']}}</a></p>
+     @endforeach
 </x-layout>
