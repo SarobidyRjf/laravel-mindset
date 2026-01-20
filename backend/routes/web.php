@@ -25,5 +25,5 @@ use App\Http\Controllers\OrderController;
 // Route::delete('/users/{id}', [UserController::class, 'delete'])->name('users.delete');
 
 // Laravel Mindest project
-Route::view('/', 'welcome'); 
-Route::view('/project', 'project'); 
+Route::view('/', 'homepage')->name('homepage'); 
+Route::view('/project', 'project')->name('projects'); 
